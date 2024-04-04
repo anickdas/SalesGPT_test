@@ -7,7 +7,7 @@ from langchain_openai import ChatOpenAI
 
 from salesgpt.agents import SalesGPT
 from salesgpt.models import BedrockCustomModel
-
+from typing import List
 
 class SalesGPTAPI:
     def __init__(
@@ -145,7 +145,7 @@ class SalesGPTAPI:
         }
         return payload
 
-    async def do_stream(self, conversation_history: [str], human_input=None):
+    async def do_stream(self, conversation_history: List[str], human_input=None):
         # TODO
         current_turns = len(conversation_history) + 1
         if current_turns >= self.max_num_turns:
